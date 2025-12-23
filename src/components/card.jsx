@@ -1,12 +1,13 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, Button } from 'react-native'
 
-function Card(props) {
+function Card({id, name, age, onDelete}) {
     return (
         <>
             <View style={styles.container}>
-                <Text style={styles.componentText}>Name: { props.name }</Text>
-                <Text style={styles.componentText}>Age: { props.age }</Text>
+                <Text style={styles.componentText}>Name: { name }</Text>
+                <Text style={styles.componentText}>Age: {age}</Text>
+                <Button onPress={() => onDelete(id)} color='red' title='Delete' />
             </View>
         </>
     )
@@ -19,7 +20,8 @@ const styles = StyleSheet.create({
     componentText: {
         color: 'black',
         fontWeight: '800',
-        fontSize: 15
+        fontSize: 15,
+        marginBottom: 10
     },
 
     container: {
